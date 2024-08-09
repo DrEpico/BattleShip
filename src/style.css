@@ -1,0 +1,18 @@
+:root {
+    --static: rgba(225, 225, 225, 0.5);
+    --static2: #0f0f0f;
+    --static3: rgb(255, 255, 255);
+    --static4: rgba(225, 225, 225, 0.2);
+    --static5: rgb(24, 172, 122);
+    --static6: rgba(0, 0, 0, 0.05);
+    --static7: rgba(0, 0, 0, 0.1);
+    --static8: rgba(0, 0, 0, 0.05);
+    --static9: rgba(0, 0, 0, 0.3);
+    --static10: rgba(225, 225, 225);
+    --static11: rgba(0, 0, 0, 0.03);
+    --static12: rgba(255, 255, 255, 0.8);
+    --static13: rgb(235, 235, 235);
+    --static14: rgba(0, 0, 0, 0.2);
+    --static15: rgba(255, 255, 255, 0.5);
+}
+
