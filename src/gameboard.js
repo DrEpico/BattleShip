@@ -11,4 +11,8 @@ export class Gameboard {
         }
         return board; // Return the local variable `board`
     }
+
+    placeShip(ship, x,y, direction){
+        
+    }
 }
