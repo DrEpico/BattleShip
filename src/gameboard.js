@@ -2,6 +2,7 @@ export class Gameboard {
     constructor(){
         this.size = 10;
         this.board = this.createBoard(this.size);
+        TODO:this.numOfShips = 5;
     }
 
     createBoard(size){
@@ -34,5 +35,9 @@ export class Gameboard {
                 this.board[x + i][y] = ship; // Place the ship vertically
             }
         }
+    }
+
+    receiveAttack(){
+        //TODO: Reveal coordinate: place "Revealed for the coordinates that was clicked but did not hit"
     }
 }

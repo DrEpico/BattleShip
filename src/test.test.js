@@ -27,7 +27,7 @@ describe('Ship class public interface', () => {
     })
 })
 
-describe('createBoard', () => {
+describe('gameboard', () => {
     test('should create a 2D array of the size 10x10', () => {
         const gameboard = new Gameboard();
         const board = gameboard.board;
@@ -39,6 +39,10 @@ describe('createBoard', () => {
         board.forEach(row => {
             expect(row.length).toBe(gameboard.size);
         });
+    });
+
+    test('Gameboards should be able to report whether or not all of their ships have been sunk ', () => {
+        //TODO:
     });
 });
 
