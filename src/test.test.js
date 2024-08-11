@@ -28,10 +28,13 @@ describe('Ship class public interface', () => {
 })
 
 describe('gameboard', () => {
-    test('should create a 2D array of the size 10x10', () => {
+
+    beforeEach(() => {
         const gameboard = new Gameboard();
         const board = gameboard.board;
+    });
 
+    test('should create a 2D array of the size 10x10', () => {
         // Check if the board has the correct number of rows
         expect(board.length).toBe(gameboard.size);
 
@@ -42,7 +45,12 @@ describe('gameboard', () => {
     });
 
     test('Gameboards should be able to report whether or not all of their ships have been sunk ', () => {
-        //TODO:
+        board.incrementSunken();
+        board.incrementSunken();
+        board.incrementSunken();
+        board.incrementSunken();
+        board.incrementSunken();
+        expect(ga).toBe();
     });
 });
 

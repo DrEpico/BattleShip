@@ -2,7 +2,9 @@ export class Gameboard {
     constructor(){
         this.size = 10;
         this.board = this.createBoard(this.size);
-        TODO:this.numOfShips = 5;
+        this.numOfShips = 5;
+        this.numOfSunken = 0;
+        this.ships = []; 
     }
 
     createBoard(size){
@@ -35,10 +37,24 @@ export class Gameboard {
                 this.board[x + i][y] = ship; // Place the ship vertically
             }
         }
+
+        this.ships.push(ship);
     }
 
     receiveAttack(){
         //TODO: Reveal coordinate: place "Revealed for the coordinates that was clicked but did not hit"
+    }
+
+    incrementSunken(){
+        this.numOfSunken++;
+        if (this.numOfSunken >= this.numOfShips) {
+            alert('Game Over! All ships have been sunk.');
+            // TODO: Optionally reset the game here
+        }
+    }
+
+    isGameover(){
+        return this.numOfSunken >= this.numOfShips;
     }
 
     //debug function
