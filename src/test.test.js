@@ -51,6 +51,32 @@ describe('gameboard', () => {
         gameboard.incrementSunken();
         expect(gameboard.isGameover()).toBe(true);
     });
+    
+    test('should correctly hit ships on the board or reveal the empty coords otherwise', () => {
+        const gameboard = new Gameboard();
+        const board = gameboard.board;
+
+        const ship = new Ship(3); // Create a ship with length 3
+        gameboard.placeShip(ship, 1,3, 'right');
+
+        gameboard.receiveAttack(1,4);
+        
+        const expectedBoard = [
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, ship, R,    null, null, null, null, null],
+            [null, null, null, ship, null, null, null, null, null, null],
+            [null, null, null, ship, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null]
+        ];
+
+        expect(board).toBe(expectedBoard);
+    });
+
 });
 
 describe('placeShip', () => {
@@ -58,7 +84,6 @@ describe('placeShip', () => {
         const gameboard = new Gameboard();
         const ship = new Ship(3); // Create a ship with length 3
         
-
         gameboard.placeShip(ship, 1,3, 'right');
 
         const expectedBoard = [
@@ -116,7 +141,7 @@ describe('placeShip', () => {
             [null, null, null, null,  null, null, null,  null,  null,  null],
             [null, null, null, ship1, null, null, null,  null,  null,  null], // ship1 starts here
             [null, null, null, ship1, null, null, null,  null,  null,  null], // ship1 continues here
-            [null, null, null, ship1, null, null, ship2, ship2, ship2, ship2], // ship1 ends here, ship2 starts
+            [null, null, null, ship1, null, null, ship2, ship2, ship2, ship2],// ship1 ends here, ship2 starts
             [null, null, null, null,  null, null, null,  null,  null,  null],
             [null, null, null, null,  null, null, null,  null,  null,  null],
             [null, null, null, null,  null, null, null,  null,  null,  null],

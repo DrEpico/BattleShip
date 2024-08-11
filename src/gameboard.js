@@ -1,3 +1,5 @@
+import { Ship } from "./ship";
+
 export class Gameboard {
     constructor(){
         this.size = 10;
@@ -41,14 +43,17 @@ export class Gameboard {
         this.ships.push(ship);
     }
 
-    receiveAttack(){
+    receiveAttack(x,y){//take coordinates in
+        if(this.board[x][y] !== ship){//how to check the object is ship or not
+            board[x][y] = R;
+        }
         //TODO: Reveal coordinate: place "Revealed for the coordinates that was clicked but did not hit"
     }
 
     incrementSunken(){
         this.numOfSunken++;
         if (this.numOfSunken >= this.numOfShips) {
-            console.log('Game Over! All ships have been sunk.');
+            return 'Game Over! All ships have been sunk.';
             // TODO: Optionally reset the game here
         }
     }
