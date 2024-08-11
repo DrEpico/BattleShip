@@ -40,4 +40,12 @@ export class Gameboard {
     receiveAttack(){
         //TODO: Reveal coordinate: place "Revealed for the coordinates that was clicked but did not hit"
     }
+
+    //debug function
+    logBoard() {
+        console.log('Gameboard:');
+        for (let row of this.board) {
+            console.log(row.map(cell => cell === null ? '.' : 'S').join(' '));
+        }
+    }
 }

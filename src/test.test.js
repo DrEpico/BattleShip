@@ -131,7 +131,8 @@ describe('placeShip', () => {
 
         // Check if the board matches the expected state
         expect(() => {
-            gameboard.placeShip(ship2, 1, 4, 'down'); // This should cause a collision
+            gameboard.placeShip(ship2, 1, 3, 'down'); // This should cause a collision
+            // gameboard.logBoard();
         }).toThrow(Error);
     }); 
 });
