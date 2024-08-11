@@ -44,8 +44,16 @@ export class Gameboard {
     }
 
     receiveAttack(x,y){//take coordinates in
-        if(this.board[x][y] !== ship){//how to check the object is ship or not
-            board[x][y] = R;
+        const cell = this.board[x][y];
+        if (cell === null) {
+            this.board[x][y] = 'R'; // 'R' for Revealed
+        } else if (cell instanceof Ship) {
+            cell.hit();
+            this.board[x][y] = 'H'; // 'H' for Hit
+
+            if (cell.getIsSunk()) {
+                this.incrementSunken();
+            }
         }
         //TODO: Reveal coordinate: place "Revealed for the coordinates that was clicked but did not hit"
     }

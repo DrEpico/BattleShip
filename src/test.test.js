@@ -63,7 +63,7 @@ describe('gameboard', () => {
         
         const expectedBoard = [
             [null, null, null, null, null, null, null, null, null, null],
-            [null, null, null, ship, R,    null, null, null, null, null],
+            [null, null, null, ship, `R`,    null, null, null, null, null],
             [null, null, null, ship, null, null, null, null, null, null],
             [null, null, null, ship, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
