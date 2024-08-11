@@ -48,7 +48,7 @@ export class Gameboard {
     incrementSunken(){
         this.numOfSunken++;
         if (this.numOfSunken >= this.numOfShips) {
-            alert('Game Over! All ships have been sunk.');
+            console.log('Game Over! All ships have been sunk.');
             // TODO: Optionally reset the game here
         }
     }

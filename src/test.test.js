@@ -6,9 +6,9 @@ describe('Ship class public interface', () => {
 
     beforeEach(() => {
         ship = new Ship(3);
-      });
+    });
 
-      afterEach(() => {
+    afterEach(() => {
         ship = null;  // Clean up by setting ship to null
     });
 
@@ -28,13 +28,10 @@ describe('Ship class public interface', () => {
 })
 
 describe('gameboard', () => {
-
-    beforeEach(() => {
+    test('should create a 2D array of the size 10x10', () => {
         const gameboard = new Gameboard();
         const board = gameboard.board;
-    });
 
-    test('should create a 2D array of the size 10x10', () => {
         // Check if the board has the correct number of rows
         expect(board.length).toBe(gameboard.size);
 
@@ -45,12 +42,14 @@ describe('gameboard', () => {
     });
 
     test('Gameboards should be able to report whether or not all of their ships have been sunk ', () => {
-        board.incrementSunken();
-        board.incrementSunken();
-        board.incrementSunken();
-        board.incrementSunken();
-        board.incrementSunken();
-        expect(ga).toBe();
+        const gameboard = new Gameboard();
+        //TODO: implement actual game logic of hitting and sinking ships
+        gameboard.incrementSunken();
+        gameboard.incrementSunken();
+        gameboard.incrementSunken();
+        gameboard.incrementSunken();
+        gameboard.incrementSunken();
+        expect(gameboard.isGameover()).toBe(true);
     });
 });
 
