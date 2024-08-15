@@ -60,13 +60,12 @@ describe('gameboard', () => {
         gameboard.placeShip(ship, 1,3, 'right');
 
         gameboard.receiveAttack(1,4);
-        gameboard.logBoardTable();
         
         const expectedBoard = [
             [null, null, null, null, null, null, null, null, null, null],
-            [null, null, null, ship, `R`,  null, null, null, null, null],
-            [null, null, null, ship, null, null, null, null, null, null],
-            [null, null, null, ship, null, null, null, null, null, null],
+            [null, null, null, ship, 'H',  ship, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
@@ -75,7 +74,25 @@ describe('gameboard', () => {
             [null, null, null, null, null, null, null, null, null, null]
         ];
 
-        expect(board).toBe(expectedBoard);
+        expect(board).toEqual(expectedBoard);
+        gameboard.receiveAttack(4,6);
+
+        const expectedBoard2 = [
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, ship, 'H',  ship, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, 'R',  null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null]
+        ];
+
+        expect(board).toEqual(expectedBoard2);
+
+        gameboard.logBoardTable();
     });
 
 });
