@@ -43,6 +43,7 @@ export class Gameboard {
         this.ships.push(ship);
     }
 
+    //Reveal coordinate: place "Revealed for the coordinates that was clicked but did not hit"
     receiveAttack(x,y){//take coordinates in
         const cell = this.board[x][y];
         if (cell === null) {
@@ -55,7 +56,6 @@ export class Gameboard {
                 this.incrementSunken();
             }
         }
-        //TODO: Reveal coordinate: place "Revealed for the coordinates that was clicked but did not hit"
     }
 
     incrementSunken(){

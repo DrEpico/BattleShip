@@ -1,5 +1,6 @@
 import { Ship } from "./ship";
 import { Gameboard } from "./gameboard";
+import { Player } from "./player";
 
 describe('Ship class public interface', () => {
     let ship
@@ -185,4 +186,10 @@ describe('placeShip', () => {
             // gameboard.logBoard();
         }).toThrow(Error);
     }); 
+});
+
+describe('Player', () => {
+    test('should ', () => {
+        
+    });
 });
