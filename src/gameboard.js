@@ -77,4 +77,15 @@ export class Gameboard {
             console.log(row.map(cell => cell === null ? '.' : 'S').join(' '));
         }
     }
+
+    logBoardTable() {
+        console.table(this.board.map(row => 
+            row.map(cell => {
+                if (cell === 'H') return 'H'; // Hit
+                if (cell === 'R') return 'R'; // Revealed
+                if (cell instanceof Ship) return 'S'; // Ship
+                return '.'; // Empty cell
+            })
+        ));
+    }
 }

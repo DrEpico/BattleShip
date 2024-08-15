@@ -60,10 +60,11 @@ describe('gameboard', () => {
         gameboard.placeShip(ship, 1,3, 'right');
 
         gameboard.receiveAttack(1,4);
+        gameboard.logBoardTable();
         
         const expectedBoard = [
             [null, null, null, null, null, null, null, null, null, null],
-            [null, null, null, ship, `R`,    null, null, null, null, null],
+            [null, null, null, ship, `R`,  null, null, null, null, null],
             [null, null, null, ship, null, null, null, null, null, null],
             [null, null, null, ship, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
