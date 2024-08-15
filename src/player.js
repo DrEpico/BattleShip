@@ -3,9 +3,9 @@ import { Gameboard } from "./gameboard";
 export class Player{
     constructor(type){
         if(type === "computer"){
-            initCompter();
+            this.initCompter();
         } else if (type === "human"){
-            initPlayer();
+            this.initPlayer();
         }
     }
 
@@ -15,5 +15,26 @@ export class Player{
 
     initCompter(){
         const gameboard = new Gameboard();
+
+        const shipLengths = [5, 4, 3, 3, 2]; 
+        shipLengths.forEach(length => {
+            let placed = false;
+
+            while (!placed) {
+                const x = Math.floor(Math.random() * this.gameboard.size);
+                const y = Math.floor(Math.random() * this.gameboard.size);
+                const direction = Math.random() < 0.5 ? 'right' : 'down';
+
+                const ship = new Ship(length);
+
+                // Try to place the ship; if it fails, catch the error and retry
+                try {
+                    this.gameboard.placeShip(ship, x, y, direction);
+                    placed = true; // If the ship is successfully placed, exit the loop
+                } catch (error) {
+                    // If there's an error (e.g., collision), continue the loop to try again
+                }
+            }
+        });
     }
 }

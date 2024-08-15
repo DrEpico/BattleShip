@@ -188,8 +188,8 @@ describe('placeShip', () => {
     }); 
 });
 
-describe('Player', () => {
-    test('should ', () => {
-        
+describe('Player initiation', () => {
+    test('should be done for computer player using initComputer()', () => {
+        expect().toBe();
     });
 });
