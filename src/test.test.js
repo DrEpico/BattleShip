@@ -92,7 +92,7 @@ describe('gameboard', () => {
 
         expect(board).toEqual(expectedBoard2);
 
-        gameboard.logBoardTable();
+        // gameboard.logBoardTable();
     });
 
 });
