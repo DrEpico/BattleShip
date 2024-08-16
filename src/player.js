@@ -12,6 +12,7 @@ export class Player{
 
     initPlayer(){
         this.gameboard = new Gameboard();
+        //TODO:implement 
     }
 
     initCompter(){
