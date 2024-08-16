@@ -1,7 +1,3 @@
 notes
 
-"Use this template"<br>
-↓<br>
-1.npm install webpack <br>
-2.npm install webpack-cli<br>
-3.npm install css-loader style-loader
+flat() is a method that flattens the 2D array into a 1D array. This converts the array from [[row1], [row2], ...] to [cell1, cell2, ..., cellN]. This makes it easier to iterate through all cells on the board.
