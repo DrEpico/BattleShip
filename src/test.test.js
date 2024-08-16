@@ -188,8 +188,45 @@ describe('placeShip', () => {
     }); 
 });
 
-describe('Player initiation', () => {
-    test('should be done for computer player using initComputer()', () => {
-        expect().toBe();
+describe('Player initialisation', () => {
+    test('should place 5 ships on the board without overlaps', () => {
+        const computerPlayer = new Player('computer');
+        const board = computerPlayer.gameboard.board;
+
+        // Check if the correct number of ships were placed
+        const shipsOnBoard = board.flat().filter(cell => cell instanceof Ship).length;
+        const expectedShipCells = [5, 4, 3, 3, 2].reduce((sum, length) => sum + length, 0);
+        /*flat() is a method that flattens the 2D array into a 1D array. This converts the array from [[row1], [row2], ...] to 
+        [cell1, cell2, ..., cellN]. This makes it easier to iterate through all cells on the board.*/ 
+        /* cell => cell instanceof Ship checks if a cell contains a Ship object (as opposed to null). 
+        The filter method then collects all the cells that contain ships into a new array. */
+
+
+        expect(shipsOnBoard).toBe(expectedShipCells);
+
+        // Check that ships do not overlap and are placed correctly
+        const visited = new Set();
+        /*Validation: The test ensures that no two ship parts occupy the same coordinates by checking 
+        whether the cell’s coordinates have been recorded before.*/
+        board.forEach((row, x) => {
+            row.forEach((cell, y) => {
+                if (cell instanceof Ship) {
+                    const position = `${x},${y}`;
+                    expect(visited.has(position)).toBe(false);
+                    visited.add(position);
+                }
+            });
+        });
+
+        // Ensure that all ships are within board boundaries
+        computerPlayer.gameboard.ships.forEach(ship => {
+            const positions = ship.positions; // Ship class stores its positions
+            positions.forEach(([x, y]) => {
+                expect(x).toBeGreaterThanOrEqual(0);
+                expect(x).toBeLessThan(computerPlayer.gameboard.size);
+                expect(y).toBeGreaterThanOrEqual(0);
+                expect(y).toBeLessThan(computerPlayer.gameboard.size);
+            });
+        });
     });
 });
