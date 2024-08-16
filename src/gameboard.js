@@ -19,16 +19,20 @@ export class Gameboard {
 
     placeShip(ship, x,y, direction){
         const shipLength = ship.length;
+        const positions = []; // Array to track positions for this ship
 
+        // First, check if the ship can be placed without collision
         for (let i = 0; i < shipLength; i++) {
             if (direction === 'right') {
                 if (this.board[x][y + i] !== null) {
                     throw new Error(`Collision detected at (${x}, ${y + i}). Ship cannot be placed.`);
                 }
+                positions.push([x, y + i]); // Track position
             } else if (direction === 'down') {
                 if (this.board[x + i][y] !== null) {
                     throw new Error(`Collision detected at (${x + i}, ${y}). Ship cannot be placed.`);
                 }
+                positions.push([x + i, y]); // Track position
             }
         }
 
@@ -39,6 +43,9 @@ export class Gameboard {
                 this.board[x + i][y] = ship; // Place the ship vertically
             }
         }
+
+        // Store the ship's positions in the Ship object
+        ship.setPositions(positions);
 
         this.ships.push(ship);
     }
