@@ -10,11 +10,11 @@ export class Player{
     }
 
     initPlayer(){
-        const gameboard = new Gameboard();
+        this.gameboard = new Gameboard();
     }
 
     initCompter(){
-        const gameboard = new Gameboard();
+        this.gameboard = new Gameboard();
 
         const shipLengths = [5, 4, 3, 3, 2]; 
         shipLengths.forEach(length => {
@@ -26,7 +26,7 @@ export class Player{
                 const direction = Math.random() < 0.5 ? 'right' : 'down';
 
                 const ship = new Ship(length);
-
+                
                 // Try to place the ship; if it fails, catch the error and retry
                 try {
                     this.gameboard.placeShip(ship, x, y, direction);
