@@ -74,4 +74,16 @@ export const domModule = {
             boardElement.appendChild(rowElement);
         });
     },
+
+    // Optional: Method to bind click events to cells on a player's board
+    bindBoardClickEvents(player, callback) {
+        const boardElement = document.getElementById(`${player}-board`);
+        boardElement.addEventListener('click', (event) => {
+            if (event.target.classList.contains('cell')) {
+                const x = event.target.dataset.x;
+                const y = event.target.dataset.y;
+                callback(x, y);
+            }
+        });
+    }
 };
