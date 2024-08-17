@@ -1,5 +1,6 @@
 import { domModule } from './domModule';
 import { Player } from './player';
+import './style.css';
 
 domModule.renderHomeScreen();
 

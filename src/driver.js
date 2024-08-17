@@ -1,20 +1,20 @@
-import { Player } from './player';
-import { Gameboard } from './gameboard';
-import { Ship } from './ship';
+// import { Player } from './player';
+// import { Gameboard } from './gameboard';
+// import { Ship } from './ship';
 
-export function game(){
-    let player = new Player("human");
-    let computer = new Player("computer");
+// export function game(){
+//     this.player = new Player("human");
+//     this.computer = new Player("computer");
 
-    //populate player’s Gameboard with predetermined coordinates.
-    player.gameboard.placeShip(new Ship(5), 2,2, 'right');
-    player.gameboard.placeShip(new Ship(4), 5,4, 'down');
-    player.gameboard.placeShip(new Ship(3), 8,7, 'right');
-    player.gameboard.placeShip(new Ship(3), 0,0, 'down');
-    player.gameboard.placeShip(new Ship(2), 6,6, 'down');
+//     //populate player’s Gameboard with predetermined coordinates.
+//     this.player.gameboard.placeShip(new Ship(5), 2,2, 'right');
+//     this.player.gameboard.placeShip(new Ship(4), 5,4, 'down');
+//     this.player.gameboard.placeShip(new Ship(3), 8,7, 'right');
+//     this.player.gameboard.placeShip(new Ship(3), 0,0, 'down');
+//     this.player.gameboard.placeShip(new Ship(2), 6,6, 'down');
 
-    player.gameboard.logBoardTable();
-}
+//     this.player.gameboard.logBoardTable();
+// }
 
 
 

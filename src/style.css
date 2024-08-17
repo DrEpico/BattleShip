@@ -16,6 +16,10 @@
     --static15: rgba(255, 255, 255, 0.5);
 }
 
+h2{
+    color: aquamarine;
+}
+
 .game-container {
     display: flex;
     justify-content: space-around;

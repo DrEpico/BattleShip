@@ -1,3 +1,5 @@
+import { Ship } from "./ship";
+
 export const domModule = {
     // Method to set up the initial home screen with headers and two game boards
     renderHomeScreen() {
