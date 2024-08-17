@@ -12,6 +12,7 @@ export class Player{
 
     initPlayer(){
         this.gameboard = new Gameboard();
+        const shipLengths = [5, 4, 3, 3, 2]; 
         //TODO:implement 
     }
 
