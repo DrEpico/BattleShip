@@ -12,12 +12,14 @@ export class GameController {
     // Method to start the game
     startGame() {
         domModule.renderHomeScreen();
-        this.humanPlayer.gameboard.placeShip(new Ship(5), 2,2, 'right');
-        this.humanPlayer.gameboard.placeShip(new Ship(4), 5,4, 'down');
-        this.humanPlayer.gameboard.placeShip(new Ship(3), 8,7, 'right');
-        this.humanPlayer.gameboard.placeShip(new Ship(3), 0,0, 'down');
-        this.humanPlayer.gameboard.placeShip(new Ship(2), 6,6, 'down');
+        // this.humanPlayer.gameboard.placeShip(new Ship(5), 2,2, 'right');
+        // this.humanPlayer.gameboard.placeShip(new Ship(4), 5,4, 'down');
+        // this.humanPlayer.gameboard.placeShip(new Ship(3), 8,7, 'right');
+        // this.humanPlayer.gameboard.placeShip(new Ship(3), 0,0, 'down');
+        // this.humanPlayer.gameboard.placeShip(new Ship(2), 6,6, 'down');
+        console.log("game starts");
         this.updateUI();
+
 
         // Bind click events for the human player to attack the computer's board
         domModule.bindBoardClickEvents('player2', (x, y) => {
@@ -64,6 +66,7 @@ export class GameController {
 
     // Update the UI for both boards
     updateUI() {
+        console.log("update UI");
         domModule.updateBoardUI(this.humanPlayer.gameboard, 'player1', true);
         domModule.updateBoardUI(this.computerPlayer.gameboard, 'player2', false);
     }
