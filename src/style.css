@@ -15,10 +15,10 @@
     --static14: rgba(0, 0, 0, 0.2);
     --static15: rgba(255, 255, 255, 0.5);
 }
-
+/* 
 h2{
     color: aquamarine;
-}
+} */
 
 .game-container {
     display: flex;
