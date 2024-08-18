@@ -46,7 +46,7 @@ export const domModule = {
     },
 
     // Method to update the UI for a specific player's game board
-    updateBoardUI(gameboard, player) {
+    updateBoardUI(gameboard, player, isOwnBoard) {
         const boardElement = document.getElementById(`${player}-board`);
         boardElement.innerHTML = ''; // Clear the existing board
         
@@ -59,13 +59,14 @@ export const domModule = {
                 cellElement.classList.add('cell');
                 cellElement.dataset.x = x;
                 cellElement.dataset.y = y;
-
+    
                 // Apply different classes based on the cell content
                 if (cell === 'H') {
                     cellElement.classList.add('hit');
                 } else if (cell === 'R') {
                     cellElement.classList.add('revealed');
-                } else if (cell instanceof Ship) {
+                } else if (isOwnBoard && cell instanceof Ship) {
+                    // Only display the ship if it's the player's own board
                     cellElement.classList.add('ship');
                 } else {
                     cellElement.classList.add('empty');
