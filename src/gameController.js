@@ -12,11 +12,11 @@ export class GameController {
     // Method to start the game
     startGame() {
         domModule.renderHomeScreen();
-        // this.humanPlayer.gameboard.placeShip(new Ship(5), 2,2, 'right');
-        // this.humanPlayer.gameboard.placeShip(new Ship(4), 5,4, 'down');
-        // this.humanPlayer.gameboard.placeShip(new Ship(3), 8,7, 'right');
-        // this.humanPlayer.gameboard.placeShip(new Ship(3), 0,0, 'down');
-        // this.humanPlayer.gameboard.placeShip(new Ship(2), 6,6, 'down');
+        this.humanPlayer.gameboard.placeShip(new Ship(5), 2,2, 'right');
+        this.humanPlayer.gameboard.placeShip(new Ship(4), 5,4, 'down');
+        this.humanPlayer.gameboard.placeShip(new Ship(3), 8,7, 'right');
+        this.humanPlayer.gameboard.placeShip(new Ship(3), 0,0, 'down');
+        this.humanPlayer.gameboard.placeShip(new Ship(2), 6,6, 'down');
         console.log("game starts");
         this.updateUI();
 
@@ -31,10 +31,10 @@ export class GameController {
     humanTurn(x, y) {
         if (this.currentPlayer !== this.humanPlayer) return;
 
-        this.humanPlayer.gameboard.receiveAttack(x, y);
+        this.computerPlayer.gameboard.receiveAttack(x, y);
         this.updateUI();
 
-        if (this.humanPlayer.gameboard.isGameover()) {
+        if (this.computerPlayer.gameboard.isGameover()) {
             alert("You win! All enemy ships have been sunk.");
             return;
         }
@@ -53,10 +53,10 @@ export class GameController {
             y = Math.floor(Math.random() * this.humanPlayer.gameboard.size);
         } while (this.humanPlayer.gameboard.board[x][y] !== null); // Avoid repeating attacks
 
-        this.computerPlayer.gameboard.receiveAttack(x, y);
+        this.humanPlayer.gameboard.receiveAttack(x, y);
         this.updateUI();
 
-        if (this.computerPlayer.gameboard.isGameover()) {
+        if (this.humanPlayer.gameboard.isGameover()) {
             alert("Computer wins! All your ships have been sunk.");
             return;
         }
