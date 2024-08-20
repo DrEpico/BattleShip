@@ -5,7 +5,7 @@ import { Ship } from './ship';
 const gameboardElement = document.getElementById('gameboard');
 
 gameboardElement.addEventListener('click', (event) => {
-    const x = event.target.dataset.x; // Assuming you've set data attributes for coordinates
+    const x = event.target.dataset.x; 
     const y = event.target.dataset.y;
     
     // Now you can handle an attack
@@ -13,4 +13,5 @@ gameboardElement.addEventListener('click', (event) => {
     
     // Update the UI
     updateBoardUI();
+    console.log("stuff were called");
 });
