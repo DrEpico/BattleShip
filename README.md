@@ -16,5 +16,8 @@ JavaScript (ES6+)</br>
 HTML5 & CSS3</br>
 Webpack</br>
 
+#### Planned Improvements
+Check them out [here](https://github.com/DrEpico/BattleShip/issues)
+
 #### Contributing
 Feel free to fork the repository and submit pull requests.
