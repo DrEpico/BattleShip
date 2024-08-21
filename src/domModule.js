@@ -19,7 +19,7 @@ export const domModule = {
         const player1Container = document.createElement('div');
         player1Container.classList.add('player-container');
         const player1Label = document.createElement('h2');
-        player1Label.innerText = 'Player 1';
+        player1Label.innerText = 'Your board';
         const player1Board = document.createElement('div');
         player1Board.id = 'player1-board';
         player1Board.classList.add('gameboard');
@@ -30,7 +30,7 @@ export const domModule = {
         const player2Container = document.createElement('div');
         player2Container.classList.add('player-container');
         const player2Label = document.createElement('h2');
-        player2Label.innerText = 'Player 2';
+        player2Label.innerText = "Opponent's board";
         const player2Board = document.createElement('div');
         player2Board.id = 'player2-board';
         player2Board.classList.add('gameboard');
