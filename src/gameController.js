@@ -12,6 +12,7 @@ export class GameController {
     // Method to start the game
     startGame() {
         domModule.renderHomeScreen();
+        //TODO: players to decide their ship positions
         this.humanPlayer.gameboard.placeShip(new Ship(5), 2,2, 'right');
         this.humanPlayer.gameboard.placeShip(new Ship(4), 5,4, 'down');
         this.humanPlayer.gameboard.placeShip(new Ship(3), 8,7, 'right');
@@ -51,7 +52,7 @@ export class GameController {
         do {
             x = Math.floor(Math.random() * this.humanPlayer.gameboard.size);
             y = Math.floor(Math.random() * this.humanPlayer.gameboard.size);
-        } while (this.humanPlayer.gameboard.board[x][y] !== null); // Avoid repeating attacks
+        } while (['H', 'R'].includes(this.humanPlayer.gameboard.board[x][y])); // Avoid cells already hit or revealed
 
         this.humanPlayer.gameboard.receiveAttack(x, y);
         this.updateUI();
@@ -69,5 +70,6 @@ export class GameController {
         console.log("update UI");
         domModule.updateBoardUI(this.humanPlayer.gameboard, 'player1', true);
         domModule.updateBoardUI(this.computerPlayer.gameboard, 'player2', false);
+        this.humanPlayer.gameboard.logBoardTable();
     }
 }
