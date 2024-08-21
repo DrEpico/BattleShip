@@ -54,7 +54,9 @@ export class GameController {
             y = Math.floor(Math.random() * this.humanPlayer.gameboard.size);
         } while (['H', 'R'].includes(this.humanPlayer.gameboard.board[x][y])); // Avoid cells already hit or revealed
 
+        // Attack the randomly chosen coordinates
         this.humanPlayer.gameboard.receiveAttack(x, y);
+        // Update the UI to reflect the attack
         this.updateUI();
 
         if (this.humanPlayer.gameboard.isGameover()) {
